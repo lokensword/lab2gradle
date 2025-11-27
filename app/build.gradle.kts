@@ -8,6 +8,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+    java
 }
 
 repositories {
@@ -18,8 +19,8 @@ repositories {
 dependencies {
     // Use JUnit test framework.
     testImplementation(libs.junit)
-
-    // This dependency is used by the application.
+    implementation("org.fusesource.jansi:jansi:2.4.2")
+    testImplementation("junit:junit:4.13.2")
     implementation(libs.guava)
 }
 
@@ -30,7 +31,34 @@ java {
     }
 }
 
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
+	
+	}
+
+tasks.run {
+    standardInput = System.`in`
+	jvmArgs("-Dfile.encoding=UTF-8")
+}
+
+tasks.register("myCustomTask") {
+    description = "Compitiing my custom task"
+    group = "lab_tasks" 
+	val projectName = project.name
+    doLast {
+        println("---")
+        println("This is my custom task, created as required by the lab!")
+        println("Hello from ${projectName}!")
+        println("---")
+    }
+}
+
+
+tasks.test {
+    useJUnit()
+}
+
 application {
     // Define the main class for the application.
-    mainClass = "org.example.App"
+    mainClass = "by.gstu.project.App"
 }
