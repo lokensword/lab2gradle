@@ -1,5 +1,9 @@
-package by.gstu.project;
+package by.gstu.project.cli;
 
+import by.gstu.project.Author;
+import by.gstu.project.Album;
+import by.gstu.project.Song;
+import by.gstu.project.MusicService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

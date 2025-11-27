@@ -1,7 +1,11 @@
 package by.gstu.project;
 
+import by.gstu.project.Author;
+import by.gstu.project.Song;
+import by.gstu.project.Album;
+import by.gstu.project.MusicService;
 import org.junit.Test;
-import static org.junit.Assert.*; // Здесь лежат assertEquals, assertTrue и т.д.
+import static org.junit.Assert.*; 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
